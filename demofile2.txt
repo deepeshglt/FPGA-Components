@@ -1,0 +1,13 @@
+module Counter(clk,en,rst,y);
+ input           clk;
+ input           en;
+ input           rst;
+ output          y;
+ reg             [15:0]r = 16'd0;
+ always@(posedge clk)
+  begin
+   if(en & ~rst) r = r + 16'd0;
+   if(rst) r = 16'd0;
+  end
+ assign y = r;
+endmodule
